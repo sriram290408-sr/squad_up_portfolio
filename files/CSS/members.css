@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Orbitron", sans-serif;
+}
+
+body {
+  background-color: #020202;
+  color: #e6f7ff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ===== Background Grid Animation ===== */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(0, 122, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 122, 255, 0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridMove 15s linear infinite;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+@keyframes gridMove {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 100px 100px, 100px 100px; }
+}
+
+/* ===== Header ===== */
+header {
+  text-align: center;
+  padding: 60px 20px 30px;
+  background: rgba(0, 0, 0, 0.6);
+  border-bottom: 1px solid rgba(0, 140, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 140, 255, 0.2);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.team-logo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 25px #008cff;
+  animation: glowPulse 3s infinite alternate;
+}
+
+@keyframes glowPulse {
+  from { box-shadow: 0 0 10px #007bff; }
+  to { box-shadow: 0 0 40px #00b7ff; }
+}
+
+.logo-info h1 {
+  font-size: 2.5rem;
+  color: #00aaff;
+  letter-spacing: 3px;
+  text-shadow: 0 0 15px #00b7ff;
+}
+
+.logo-description {
+  color: #a8c7ff;
+  font-size: 1.1rem;
+}
+
+/* ===== Member Detail Section ===== */
+.member-detail {
+  max-width: 1000px;
+  margin: 80px auto;
+  background: rgba(0, 20, 40, 0.8);
+  border: 1px solid rgba(0, 140, 255, 0.3);
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 140, 255, 0.3);
+  backdrop-filter: blur(8px);
+  transition: 0.3s ease;
+}
+
+.member-detail:hover {
+  box-shadow: 0 0 40px rgba(0, 174, 255, 0.5);
+}
+
+.member-detail .profile {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.member-detail .profile img {
+  border-radius: 15px;
+  width: 300px;
+  height: 350px;
+  object-fit: cover;
+  box-shadow: 0 0 25px rgba(0, 140, 255, 0.5);
+  transition: 0.4s ease;
+}
+
+.member-detail .profile img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(0, 200, 255, 0.7);
+}
+
+.member-detail .info {
+  flex: 1;
+  color: #cfeeff;
+}
+
+.member-detail .info h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #00b7ff;
+  text-shadow: 0 0 10px #00b7ff;
+  position: relative;
+}
+
+.member-detail .info h2::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 3px;
+  background: linear-gradient(90deg, #00b7ff, transparent);
+  margin-top: 10px;
+  border-radius: 3px;
+}
+
+.member-detail .info p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #b9e0ff;
+}
+
+.member-detail .info h3 {
+  font-size: 1.4rem;
+  color: #00aaff;
+  margin: 25px 0 10px;
+  text-shadow: 0 0 10px #008cff;
+}
+
+.member-detail .info ul {
+  list-style: square;
+  margin-left: 25px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #b9e0ff;
+}
+
+.member-detail .info p a {
+  color: #00b7ff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.member-detail .info p a:hover {
+  color: #7866ff;
+  text-shadow: 0 0 8px #0015ff;
+}
+
+/* ===== Back Link ===== */
+section .back-link {
+  color: #5500ff;
+  text-decoration: none;
+  font-size: 25px;
+  display: inline-block;
+  margin-top: 0;
+  transition: 0.3s;
+}
+
+section .back-link:hover {
+  color: #66d1ff;
+  text-shadow: 0 0 10px #00b7ff;
+  top: 20px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .member-detail {
+    padding: 30px;
+  }
+
+  .member-detail .profile {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .member-detail .profile img {
+    width: 250px;
+    height: 300px;
+  }
+
+  .member-detail .info h2 {
+    font-size: 1.7rem;
+  }
+
+  .member-detail .info p {
+    font-size: 1rem;
+  }
+}
